@@ -3,8 +3,6 @@ from threading import *
 from tkinter import filedialog, messagebox
 from pytube import YouTube, Playlist
 
-font = ("courier", 14)
-
 
 def download_complete(stream=None, file_path=None):
     print("Download complete")
@@ -73,21 +71,23 @@ def start_button():
 
 root = Tk()
 root.title("YouTube Downloader")
-root.iconbitmap("images/YouTube_23392.ico")
+# root.iconbitmap("YouTube_23392.ico")
 root.geometry("640x400")
+img = PhotoImage(file="YouTube_23392.ico")
+root.tk.call("wm", "iconphoto", root._w, img)
 
-img_file = PhotoImage(file="images/YouTube_23392_img.png")
+img_file = PhotoImage(file="YouTube_23392_img.png")
 head_icon = Label(root, image=img_file)
 head_icon.pack(side=TOP, pady=5)
 
-url_field = Entry(root, font=font, justify=CENTER)
-url_field.pack(side=TOP, fill=X, padx=25)
+url_field = Entry(root, font=("courier", 10), justify=CENTER)
+url_field.pack(side=TOP, fill=X, padx=25, pady=15)
 url_field.focus()
 
 dwnld_btn = Button(
     root,
     text="Download Video or Playlist",
-    font=font,
+    font=("courier", 16),
     relief="ridge",
     command=start_button,
 )
