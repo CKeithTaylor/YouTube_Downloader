@@ -1,5 +1,5 @@
 from tkinter import *
-from threading import *
+from threading import Thread
 from tkinter import filedialog, messagebox
 from pytube import YouTube, Playlist
 
